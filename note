@@ -1,0 +1,96 @@
+课程大刚
+http://www.zhufengpeixun.com/docs/html/Git/git%E5%85%A5%E9%97%A8.html
+
+git 版本控制公工具  开发者linux 开源的允许贡献者提交代码
+优势：
+        1、代码永不丢失
+        2、可以实现版本之间的“穿越"
+        3、合并代码管理 多端共享
+
+        1、重要文件经常多备份防止丢失
+        2、经常修改，不容易操作回去
+        3、团队开发
+        4、可以回滚
+
+代码管理工具：
+svn: 集中式的  一台中央服务器
+        ①linux 命令
+        ②clear ：清空
+        ③mkdir ：创建文件夹
+        ④rm -rf mypo
+        ⑤进入用cd +文件名
+        ⑥cd ../上一级目录
+        ⑦cd d: 切换别的
+        ⑧touch 1.txt 创建文件
+        ⑨vi +1.txt（文件名） 编辑文件 按i 就能编译了
+        ⑩esc  :q 退出 :wq保存并推出　
+        ⑪cat 查看   1.txt
+        ⑫echo 内容 >文件名  向文件里添加内容  这样不会覆盖
+        ⑬echo 编辑内容 >> 文件名   新增式的编辑
+git：分布式盘
+        1 git config --list 查看配置信息（如果提交代码需要配置用户名和密码）
+        2 git config --global  user.name "" 配置用户名
+        3 git config --global　user.email "" 配置邮箱
+git 使用
+        git init  初始化git 仓库 让当前文件夹被git 管理
+        git status 查看当前状态 看当前文件是否添加的git 的那个区
+    三个区
+    1、工作区 工作的地方      在自己的电脑上（文件是红色的） 不能直接从工作区提交到历史区
+         git add ./-A 提交所有的  把工作区的提交到暂存区
+    2、暂存区 暂时存放的地方   commit 从这里拿东西（文件是绿色的）
+         git rm --cached +文件名可以从暂存区拉回懂啊工作区
+         git commit -m"文件描述" 从暂存区提交的历史去
+    3、历史区
+         git log　查看版本号　commit 56769ac544b1b058f6c50afa99be186521ed88e5 (HEAD -> master)
+　　　　　查看上次的版本号
+　　　　  git  reset HEAD +文件       删除暂存区之前的提交状态 暂存区的改了但是本地的还没改
+         git  checkout 1.txt        把暂存区的文件覆盖工作区的文件（回滚）把暂存区拉回工作区
+
+
+         git  diff    :             工作区和暂存区的比较
+         git  diff    --cached      查工作区和暂存区的比较
+         git  diff   master         工作区和历史区比较
+         git  rm 文件名：            删除本地文件
+         git  rm --cached "文件名"   仅删除缓存区文件
+
+         git  checkout  加版本号 +   文件名  按照指定的版本号恢复（从历史去回复到工作区）
+         git  reflog    :           查看所有日志记录
+         git  cat                   查看版本号
+         git  reset --hard +版本号   按照某个提交的版本号 回复本地文件
+         git  commit -a -m"描述"     从工作去直接提交到工作区（这样其实也提交过暂存区了，这个是必须之前提交过一次）
+         一个文件夹里只能有一个git  内部不能再有文件夹有git 文件
+         master 一般都是线上的代码不能改
+         所以要有分支（一般提交先提交的分之上去）
+分之：
+         git  branch                   查看当前仓库的分之
+         master (主干)  当有文件提交的历史区之后会出现主干
+         git  branch     dd            创建一个开发分之（）
+         git  checkout   dd            切换分之
+         git  branch     -d  dd        删除分之 不能再自己的分之下删除自己的分之 只能在上级上删除
+         当提交到历史区的时候，主分支和dd分之就没有关系了
+         没合并分之的时候 在分之上的文件在主干上不能看到
+         git  merge      分之名字        把分之的代码合并到主干上
+         一个主干可以分多个分支 当创建新的分之上的时候，新的分之就可以拿到原来的文件
+         分之还可以再建立分支    可以在任何分支上切换任何分之上
+
+         git  fetch                  分之
+         git  diff master origin /master
+         touch 3.txt
+远程仓库：
+         git 账号
+         创建  点击repository 创建一个远程的仓库
+如何关联远程仓库
+         git remote -v  查看当前地址有关联的远程仓库吗？
+         git remote add node【自己定义】 + 远程仓库的地址  关联远程仓库
+          之后node 就代表了所代表的远程仓库的地址
+         node    git@github.com:luoruirui/gitStuday.git (fetch)
+         node    git@github.com:luoruirui/gitStuday.git (push)
+         fetch   把远程仓库的内容拉取
+         git pull =git fetch +git merge （拉取还进行了合并）
+
+         git add ./-A      把工作区提交到暂存区
+         git commit -m"注视"  把暂存区提交到历史区
+         git push 仓库的名字【自定义的】master 把历史区的代码提交到远程仓库
+         文件夹为空不会提交远程仓库的
+
+         git pull origin master --allow-unrelated-histories
