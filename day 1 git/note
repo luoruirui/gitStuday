@@ -78,10 +78,10 @@ git 使用
          git  fetch                  分之
          git  diff master origin /master
          touch 3.txt
-远程仓库：
+ 远程仓库：
          git 账号
          创建  点击repository 创建一个远程的仓库
-如何关联远程仓库
+ 如何关联远程仓库
          git remote -v  查看当前地址有关联的远程仓库吗？
          git remote add node【自己定义】 + 远程仓库的地址  关联远程仓库
           之后node 就代表了所代表的远程仓库的地址
@@ -103,5 +103,58 @@ git 使用
             * branch            master     -> FETCH_HEAD
            fatal: refusing to merge unrelated histories
          ``````
-  解决办法 ：
+ 解决办法 ：
          git push gitnew master --force  强制覆盖远程仓库的内容
+ 怎样忽略不想上传的文件
+
+ node 基础：
+　　　　　服务器：处理数据资源的（java php .net）
+         node:node 是一个运行在服务器上的环境，只要在服务器上部署了node环境，js就可以运行在服务器上node不是一门语言
+         node.js :node 环境下js规范
+         js一般运行在客户端（浏览器）
+         移动端：开发好的页面一般都嵌套web-view ，就向一个浏览器一样来渲染页面
+         https://edu.csdn.net/course/play/6970/142816
+         js 是一名全找开发语言 接口  http create server(express)
+ 按装：
+        npm install node
+ 客户端最大的全局对象是window （ 浏览器给前端代码提供运行环境）
+ 全局对象是global      node 提供的环境 js运行的环境
+        buffer :缓存区
+        node 属于单线程 存在异步 靠回调函数来解决异步的
+        主任务队列和等待任务队列，先执行主任务队列，后执行等待任务队列的的方法
+        https://www.cnblogs.com/chris-oil/p/5339305.html
+
+
+
+
+        前端的异步
+        异步 :定时器 回调函数  ajax 元素绑定的行为
+        promise 是解决异步的
+        flilename
+
+ node 模块化  node天生自带模块
+        console.log(this) =>{}
+        这是因为每个node的。js 文件都会被一个函数包来，当前私有作用this 模块中this是当前的模块
+        let a=10 当前模块的私有变量在另一个模块下不能使用
+        global.a=10  console.log(global.a) undefined
+        一个js文件就是一个模块,模块就是一个自执行函数
+        console.log(argument) 能输出 是因为在自执行函数中
+
+        (function(exports,require,module,filename){
+          module.exports=exports={};
+          return modules.exports // {}
+
+        })()
+        exports :对象 导出
+        require :导入模块
+        module:对象
+        filename :d当前文件的绝对路劲
+        dirname :当前文件夹目录的绝对路径
+
+         let a=b={}
+         b.c=10
+         a.c=10
+         b={d:20} 再写一个b={} 就是把前面的地址改变了 这样a 和b的地址就不相等了
+         a.d就找不到了空间就变了
+
+         .js .json .node 的后缀名.是可以省略的

@@ -1,0 +1,5 @@
+{
+  "dependencies": {
+    "node": "^9.10.1"
+  }
+}
