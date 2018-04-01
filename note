@@ -94,3 +94,12 @@ git 使用
          文件夹为空不会提交远程仓库的
 
          git pull origin master --allow-unrelated-histories
+ 远程仓库和本地的仓库没有关系就会报错
+         ```````
+           $ git pull gitnew master
+           From https://github.com/luoruirui/newGit
+            * branch            master     -> FETCH_HEAD
+           fatal: refusing to merge unrelated histories
+         ``````
+  解决办法 ：
+         git push gitnew master --force  强制覆盖远程仓库的内容
