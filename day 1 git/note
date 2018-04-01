@@ -1,5 +1,7 @@
 课程大刚
 http://www.zhufengpeixun.com/docs/html/Git/git%E5%85%A5%E9%97%A8.html
+git 命令
+http://www.ruanyifeng.com/blog/2015/12/git-cheat-sheet.html 
 
 git 版本控制公工具  开发者linux 开源的允许贡献者提交代码
 优势：
@@ -47,10 +49,10 @@ git 使用
          git  checkout 1.txt        把暂存区的文件覆盖工作区的文件（回滚）把暂存区拉回工作区
 
 
-         git  diff    :             工作区和暂存区的比较
-         git  diff    --cached      查工作区和暂存区的比较
+         git  diff                  工作区和暂存区的比较
+         git  diff    --cached      暂存区和历史区的比较
          git  diff   master         工作区和历史区比较
-         git  rm 文件名：            删除本地文件
+         git  rm 文件名：             删除本地文件
          git  rm --cached "文件名"   仅删除缓存区文件
 
          git  checkout  加版本号 +   文件名  按照指定的版本号恢复（从历史去回复到工作区）
